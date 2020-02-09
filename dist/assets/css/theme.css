@@ -13520,9 +13520,17 @@ pre[class*="language-"] {
   height: 28px;
   width: 184px; }
 
+@media (max-width: 991.98px) {
+  .nav {
+    flex-wrap: unset; } }
+
 .nav-item {
   font-size: 18px;
   margin: 0 2px; }
+  @media (max-width: 991.98px) {
+    .nav-item {
+      font-size: 16px;
+      text-align: center; } }
 
 .lead {
   font-size: 1.1rem; }
