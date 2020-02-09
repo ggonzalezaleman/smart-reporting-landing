@@ -7,7 +7,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "./node_modules/.bin/gulp",
-    "postinstall": "gulp deps"
+    "postinstall": "gulp deps",
+    "build": "gulp build"
   },
   "browserslist": "Safari > 10, Firefox > 40, Chrome > 40, ie >= 11",
   "eslintConfig": {
