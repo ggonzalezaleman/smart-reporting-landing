@@ -121,7 +121,8 @@ getPaths = () => {
     },
     forms: {
       folder: 'forms',
-      all: 'forms/*.*',
+      all: 'forms/**/*.*',
+      allFolders: ['forms/vendor', 'forms/templates', 'forms/csv'],
     },
     dist: {
       packageFolder: '',
@@ -307,11 +308,11 @@ gulp.task('copy-assets', function () {
 });
 
 gulp.task('forms', function () {
-  return gulp.src(paths.pages.all, {
-      base: paths.pages.folder
+  return gulp.src(paths.forms.all, {
+      base: paths.forms.folder
     })
-    .pipe(newer(paths.dist.folder))
-    .pipe(gulp.dest(paths.dist.folder))
+    .pipe(newer(paths.dist.forms))
+    .pipe(gulp.dest(paths.dist.forms))
     .pipe(reload({
       stream: true
     }));
@@ -378,6 +379,10 @@ gulp.task('watch', function (done) {
     cwd: './'
   }, gulp.series('copy-assets'));
 
+  gulp.watch([paths.forms.all], {
+    cwd: './'
+  }, gulp.series('forms'));
+
   assetsWatcher.on('change', function (path) {
     console.log('File ' + path + ' was changed');
   });
@@ -393,6 +398,6 @@ gulp.task('watch', function (done) {
 
 });
 
-gulp.task('default', gulp.series('clean:dist', 'copy-assets', gulp.series('html', 'sass', 'sass-min', 'bootstrapjs', 'mrarejs'), gulp.series('serve', 'watch')));
+gulp.task('default', gulp.series('clean:dist', 'copy-assets', gulp.series('html', 'sass', 'sass-min', 'bootstrapjs', 'mrarejs', 'forms'), gulp.series('serve', 'watch')));
 
 gulp.task('build', gulp.series('clean:dist', 'copy-assets', gulp.series('html', 'sass', 'sass-min', 'bootstrapjs', 'mrarejs', 'forms')));
