@@ -26,25 +26,25 @@ $outgoingServerSecurity    = null;                 // 'ssl' , 'tls' , null - con
 
 // Sending Account Settings - replace these details with an email account held on the SMTP server entered above.
 // This will also be used as the account to send the confirmation to the user.
-$sendingAccountUsername    = '';
-$sendingAccountPassword    = '';
+$sendingAccountUsername    = 'smartreporting1@gmail.com';
+$sendingAccountPassword    = 'Litebox1234';
 
 // Recipient (To:) Details - Change this to the email details of who will receive all the emails from the website.
-$recipientEmail            = '';      // Where to send the admin email.
-$recipientName             = ''; // Name of admin to receive email from website.
+$recipientEmail            = 'smartreporting1@gmail.com';      // Where to send the admin email.
+$recipientName             = 'Tomas Spada'; // Name of admin to receive email from website.
 
 // Email details - Change these to suit your website needs
-$emailSubject              = 'A message from a form on your website'; // Subject of the email that the admin will see.
-$websiteName               = 'Edit your company website name';       // This is used as the "From name".
+$emailSubject              = 'A message from Smart Reporting website'; // Subject of the email that the admin will see.
+$websiteName               = 'Smart Reporting';       // This is used as the "From name".
 $adminEmailTemplate        = 'email_to_admin.html';      // Name of template (in templates folder) to use for email to admin.
 
 // Success Message to display in browser
 global $successMessage;
-$successMessage            = 'Thank you, a member of our team will be in touch shortly.'; 
+$successMessage            = 'Thank you! A member of our team will be in touch shortly.'; 
 
 // Google reCAPTCHA
 // If your form is configured with a reCAPTCHA widget, this secret key will be used to validate with Google's server.
-$recaptchaSecretKey        = 'optionally_insert_your_recaptcha_secret_key_here';
+$recaptchaSecretKey        = '6LdQi9cUAAAAAHk9aIj-L8hhRjFuJfrPpAceBIv4';
 $recaptchaErrorMessage     = 'There was a problem verifying the Google reCaptcha.  Please try again.';
 
 // Send User a Confirmation Email?
@@ -65,7 +65,7 @@ $confirmationReplyTo       = "admin@yourcompany.com";  // If the user wants to r
 
 // Save to CSV file to keep a text record of the form entries 
 // This file should be password protected!
-$saveToCSV                 = true;
+$saveToCSV                 = false;
 $saveToCSVFileName         = "csv/csv_forms_email_1.csv";
 
  /*----------------------------------------------------------------------------*\
