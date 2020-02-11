@@ -20,9 +20,9 @@
 // (see cPanel -> email accounts).  Using an account at your host improves deliverability.
 
 // These are the Outgoing Server (SMTP) details provided by your email host
-$outgoingServerAddress     = ''; // consult your hosting provider.
-$outgoingServerPort        = 25;                  // '587' , '25' - consult your hosting provider
-$outgoingServerSecurity    = null;                 // 'ssl' , 'tls' , null - consult your hosting provider.
+$outgoingServerAddress     = 'smtp.gmail.com'; // consult your hosting provider.
+$outgoingServerPort        = 587;                  // '587' , '25' - consult your hosting provider
+$outgoingServerSecurity    = 'ssl';                 // 'ssl' , 'tls' , null - consult your hosting provider.
 
 // Sending Account Settings - replace these details with an email account held on the SMTP server entered above.
 // This will also be used as the account to send the confirmation to the user.
