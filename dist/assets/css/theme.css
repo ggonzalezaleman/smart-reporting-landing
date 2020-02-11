@@ -13554,4 +13554,32 @@ pre[class*="language-"] {
 .footer-legal {
   font-size: .8em; }
 
+article ol {
+  padding-left: 1rem !important; }
+  @media (max-width: 991.98px) {
+    article ol {
+      padding-left: .3rem !important; } }
+
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0; }
+
+ol > li {
+  display: table;
+  counter-increment: item;
+  margin-bottom: 0.6em; }
+
+ol > li:before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.3em; }
+
+li ol > li {
+  margin: 0; }
+
+li ol > li:before {
+  content: counters(item, ".") " "; }
+
 /*# sourceMappingURL=theme.css.map */
