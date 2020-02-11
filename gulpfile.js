@@ -119,6 +119,10 @@ getPaths = () => {
       folder: 'assets/video',
       all: 'assets/video/*.*',
     },
+    forms: {
+      folder: 'forms',
+      all: 'forms/*.*',
+    },
     dist: {
       packageFolder: '',
       folder: 'dist',
@@ -133,6 +137,7 @@ getPaths = () => {
       fonts: 'dist/assets/fonts',
       video: 'dist/assets/video',
       documentation: 'dist/documentation',
+      forms: 'dist/forms',
       exclude: ['!**/desktop.ini', '!**/.DS_store'],
     },
     copyDependencies: copyDeps,
@@ -301,6 +306,17 @@ gulp.task('copy-assets', function () {
     }));
 });
 
+gulp.task('forms', function () {
+  return gulp.src(paths.pages.all, {
+      base: paths.pages.folder
+    })
+    .pipe(newer(paths.dist.folder))
+    .pipe(gulp.dest(paths.dist.folder))
+    .pipe(reload({
+      stream: true
+    }));
+});
+
 gulp.task('deps', async (done) => {
   await paths.copyDependencies.forEach(function (filesObj) {
     let files;
@@ -379,4 +395,4 @@ gulp.task('watch', function (done) {
 
 gulp.task('default', gulp.series('clean:dist', 'copy-assets', gulp.series('html', 'sass', 'sass-min', 'bootstrapjs', 'mrarejs'), gulp.series('serve', 'watch')));
 
-gulp.task('build', gulp.series('clean:dist', 'copy-assets', gulp.series('html', 'sass', 'sass-min', 'bootstrapjs', 'mrarejs')));
+gulp.task('build', gulp.series('clean:dist', 'copy-assets', gulp.series('html', 'sass', 'sass-min', 'bootstrapjs', 'mrarejs', 'forms')));
